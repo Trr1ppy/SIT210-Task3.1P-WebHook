@@ -8,11 +8,11 @@ DHT dht(DHTPIN, DHTTYPE);
 void setup() 
 {
 	dht.begin();
-	delay(2000);
 }
 
 void loop() 
 {
+	delay(2000);
 	float t = dht.getTempCelcius();
 	
 	if(isnan(t))
@@ -20,7 +20,6 @@ void loop()
 		return;
 	}
 	
-    String temp = String(t);
-    Particle.publish("temp", temp, PRIVATE);
-	delay(5000);
+    	String temp = String(t);
+    	Particle.publish("temp", temp, PRIVATE);
 }
